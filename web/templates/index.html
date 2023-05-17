@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'content' %}
+<div class="container">
+    <div class="row">
+        
+        <div class="h-100 p-2 text-dark bg-warning rounded-3 mb-4">
+            <h2>
+                Nuestros productos
+            </h2>
+            <p>
+                OnlyFlans nace en el año 2021 buscando entregar flanes de calidad.
+            </p>
+            <a href="{% url 'acerca' %}" class="btn btn-outline-dark">
+                Conoce más
+            </a>
+        </div>
+
+        {% for flan in public_flans %}
+        <div class="col-6 col-md-3">
+            <div class="card mb-4">
+                <img src="{{ flan.image_url }}" class="card-img-top" height="250">
+                <div class="card-body" >
+                    <h5 class="card-title">
+                        {{ flan.name}}
+                    </h5>
+                    <p>
+                        {{ flan.description }}
+                    </p>
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne{{forloop.counter0}}" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    <img src="{% static 'flan.png' %}" alt="flancito" width="30" height="30">Formato
+                                    Individual
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne{{forloop.counter0}}" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <strong>Precio : ${{flan.price}}</strong> <br><br>
+                                    <p>
+                                        200g de mucho sabor
+                                    </p>
+                                    <p>
+                                        <b>Salsas a elección:</b> Frambuesa, caramelo, chocolate. Puedes escoger sólo
+                                        una salsa.
+                                    </p>
+                                    <p>
+                                        <b>Cremas a elección:</b> Batida, Chantilly. Puedes escoger sólo una crema.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwo{{forloop.counter0}}" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo">
+                                    <img src="{% static 'flan.png' %}" alt="flancito" width="30" height="30">Formato
+                                    Familiar
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo{{forloop.counter0}}" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <strong>Precio : $8.990</strong>
+                                    <br><br>
+                                    <p>
+                                        Este formato consta de una fuente de aproximadamente 2kg de puro flan, ideal
+                                        para 8 personas.
+                                    </p>
+                                    <p>
+                                        <b>Salsas a elección:</b> Frambuesa, caramelo, chocolate, naranja, miel de
+                                        maple,miel. Puedes escoger tres salsas.
+                                    </p>
+                                    <p>
+                                        <b>Cremas a elección:</b> Batida, chantilly, pastelera, praliné. Puedes escoger
+                                        tres tipos de cremas.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseThree{{forloop.counter0}}" aria-expanded="false"
+                                    aria-controls="flush-collapseThree">
+                                    <img src="{% static 'flan.png' %}" alt="flancito" width="30" height="30">Pedido
+                                    especial
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree{{forloop.counter0}}" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <p>
+                                        ¿Quieres tener a Flanos en tu cumpleaños?
+                                    </p>
+                                    <p>
+                                        ¿Quieres enviarle un flan especial a tu pareja?
+                                    </p>
+                                    <p>
+                                        ¿Quieres un flan con ingredientes a tu gusto?
+                                    </p>
+
+                                    <p>¡Todo eso y más <img src="{% static 'OnlyFlans.png' %}" alt="logo" header="100"
+                                            width="100" class="mb-2">
+                                        puede hacerlo realidad!</p>
+                                    <div style="text-align: center;">
+                                        <strong>Cotiza con nosotros</strong> <br>
+                                        <a href="{% url 'contacto' %}" class="btn text-white" style="background-color: blueviolet;">
+                                            Cotizar
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+<div class="container mt-4">
+    <div style="text-align: center; font-family: 'Updock';">
+        <h1 class="display-1">
+            <b>
+                Sucursales
+            </b>
+        </h1>
+    </div>
+    <div style="text-align: center; background-color: blueviolet;" class="text-white mb-4">
+        <h4>
+            Ven a probar deliciosos flanes a nuestras distintas sucursales 
+        </h4>
+    </div>
+    <div class="row">
+    {% for sucursales in public_sucursaless %}
+    <div class="col-12 col-md-6">
+        <div class="card mb-4" style="max-width: 1200px;">
+            <div class="row g-0 ">
+                <div class="col-md-6">
+                    <img src="{{ sucursales.image_url }}" class="card-img-top" alt="..." height="300" width="180">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <p class="card-direccion">
+                            <span class="material-symbols-outlined">
+                                home_pin
+                            </span>{{sucursales.direccion}}
+                        </p>
+                        <p class="card-price">
+                            <span class="material-symbols-outlined">
+                                call_end
+                            </span>{{sucursales.telefono}}
+                        </p>
+                        <p class="card-horario">
+                            <span class="material-symbols-outlined">
+                                schedule
+                            </span>{{sucursales.horario}}
+                        </p>
+                        <p class="card-correo">
+                            <span class="material-symbols-outlined">
+                                alternate_email
+                            </span>{{sucursales.correo}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    
+</div>
+{% endblock %}
